@@ -1,103 +1,156 @@
 .lp {
-    table {
-        td {
-            a {
-                @include aSetting_nocolor;
-            }
-            &.date {
-                text-align: center;
-                color: #666;
-                @include screen('mobile') {
-                    text-align: left;
-                }
-            }
-            &.num {
-                text-align: center;
-                color: #666;
-                @include screen('mobile') {
-                    text-align: left;
-                }
-            }
+  table {
+    td {
+      a {
+        @include aSetting_nocolor;
+      }
+      &.date {
+        text-align: center;
+        color: #666;
+        @include screen('mobile') {
+          text-align: left;
         }
-    }
-    .list {
-        & > ul,
-        ol {
-            list-style-type: none;
-            padding: 0;
-            border-top: 2px solid $primaryColor;
-            & > li {
-                padding: 0.75em 0 0.5em;
-                border-bottom: 1px solid #ddd;
-                position: relative; // outline: 1px solid blue;
-                .tag {
-                    margin-left: 2em;
-                }
-                & > a {
-                    display: block;
-                    padding-left: 2em;
-                    position: relative;
-                    line-height: 1.45em;
-                    font-weight: bold;
-                    color: $color-word;
-                    &:hover {
-                        color: $aHover;
-                    }
-                    .num {
-                        width: 1.5em;
-                        text-align: right;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        &:after {
-                            content: '.';
-                            display: inline-block;
-                        }
-                    }
-                }
-                span.dept {
-                    display: inline-block;
-                    font-size: 0.938em;
-                    font-weight: normal;
-                    @include screen('mobile') {
-                        display: block;
-                    }
-                }
-                time {
-                    display: block;
-                    color: #aaa;
-                    font-size: 0.938em;
-                    font-weight: normal;
-                }
-            }
+      }
+      &.num {
+        text-align: center;
+        color: #666;
+        @include screen('mobile') {
+          text-align: left;
         }
+      }
     }
+  }
+  .list {
+    @include screen('tablet') {
+      background: none;
+    }
+    &>ul,
+    ol {
+      width: 60%;
+      list-style-type: none;
+      padding: 0;
+      -moz-column-count: 2;
+      -moz-column-gap: 20px;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 20px;
+      column-count: 2;
+      column-gap: 20px;
+      @include screen('tablet') {
+        width: 100%;
+      }
+      @include screen('mobile') {
+        width: 100%;
+        -moz-column-count: 1;
+        -moz-column-gap: 0;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0;
+        column-count: 1;
+        column-gap: 0;
+      }
+      &>li {
+        padding: 0.5em 0 0.5em;
+        position: relative; // outline: 1px solid blue;
+        font-size: 1.125rem;
+        .tag {
+          margin-left: 2em;
+        }
+        &>a {
+          display: block;
+          padding: .5rem .5rem .5rem 4rem;
+          background: url(../images/icon_coin.png) no-repeat .9rem center;
+          background-size: 24px;
+          position: relative;
+          line-height: 1.45em;
+          font-weight: bold;
+          color: #222;
+          border-radius: 30px;
+          border: 2px solid $primaryColor;
+          &:hover,
+          &:focus {
+            color: #fff;
+            background: $primaryColor url(../images/icon_coin.png) no-repeat .9rem center;
+            background-size: 24px;
+          }
+          .num {
+            width: 1.5em;
+            text-align: right;
+            position: absolute;
+            top: 0.5rem;
+            left: 2rem;
+            &:after {
+              content: '.';
+              display: inline-block;
+            }
+          }
+        }
+        span.dept {
+          display: inline-block;
+          font-size: 0.938em;
+          font-weight: normal;
+          @include screen('mobile') {
+            display: block;
+          }
+        }
+        time {
+          display: block;
+          color: #aaa;
+          font-size: 0.938em;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+.album {
+  padding-top: 1rem;
+  .Flex-set {
+    .thumbnail {
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 .5rem 0 rgba(0, 0, 0, .3);
+      background: $primaryColor;
+      @include flex-xs-equal(1, 20px);
+      @include flex-sm-equal(2, $m-gutter);
+      @include flex-md-equal(4, $m-gutter);
+      @include flex-lg-equal(4, $m-gutter);
+      a {
+        color: #fff;
+      }
+      @include screen('mobile') {
+        justify-content: center;
+      }
+      .caption {
+        padding-bottom: .5em;
+        text-align: center;
+      }
+    }
+  }
 }
 
 // .album {
-//     margin: 1em auto;
-//     ul {
-//         @include li-reset;
-//         display:flex;
-//         flex-direction:row;
-//         justify-content:flex-start;
-//         align-items:stretch;
-//         flex-wrap:wrap;
-//         li{
-//             flex:0 0 30%;
-//             margin:0 1.66% 3%;
-//             display:flex;
-//             flex-direction:row;
-//             align-content: stretch;
-//             @include screen('tablet'){
-//                 flex:0 0 46%;
-//                 margin:0 2% 3%;
-//             }
-//             @include screen('mobile'){
-//                 flex:0 0 96%;
-//                 margin:0 3% 5%;
-//             }
-
-//         }
+//   margin: 1em auto;
+//   ul {
+//     @include li-reset;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//     align-items: stretch;
+//     flex-wrap: wrap;
+//     li {
+//       flex: 0 0 30%;
+//       margin: 0 1.66% 3%;
+//       display: flex;
+//       flex-direction: row;
+//       align-content: stretch;
+//       @include screen('tablet') {
+//         flex: 0 0 46%;
+//         margin: 0 2% 3%;
+//       }
+//       @include screen('mobile') {
+//         flex: 0 0 96%;
+//         margin: 0 3% 5%;
+//       }
 //     }
+//   }
 // }
