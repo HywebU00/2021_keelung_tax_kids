@@ -21,6 +21,8 @@
     }
   }
   .list {
+    background: url(../images/tax.png) no-repeat right center;
+    background-size: 400px;
     @include screen('tablet') {
       background: none;
     }
