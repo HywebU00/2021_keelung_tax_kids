@@ -12,7 +12,7 @@ footer {
   .container {
     width: 100%;
     position: relative;
-    @include gutter;
+    padding: 0 30px;
     display: flex;
     >div {
       z-index: 12;
