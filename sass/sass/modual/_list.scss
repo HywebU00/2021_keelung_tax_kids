@@ -53,6 +53,7 @@
         padding: 0.5em 0 0.5em;
         position: relative; // outline: 1px solid blue;
         font-size: 1.125rem;
+        break-inside: avoid;
         .tag {
           margin-left: 2em;
         }
